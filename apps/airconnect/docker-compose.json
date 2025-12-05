@@ -1,59 +1,9 @@
 {
   "services": [
     {
-      "name": "ombi",
-      "image": "lscr.io/linuxserver/ombi:development",
-      "isMain": true,
-      "internalPort": "3579",
-      "environment": [
-        {
-          "key": "PUID",
-          "value": "1000"
-        },
-        {
-          "key": "PGID",
-          "value": "1000"
-        },
-        {
-          "key": "TZ",
-          "value": "${TZ}"
-        },
-        {
-          "key": "BASE_URL",
-          "value": "/ombi"
-        }
-      ],
-      "volumes": [
-        {
-          "containerPath": "/config",
-          "hostPath": "${APP_DATA_DIR}/data/config",
-          "readOnly": false,
-          "shared": false,
-          "private": false
-        },
-        {
-          "containerPath": "/etc/localtime",
-          "hostPath": "/etc/localtime",
-          "readOnly": true,
-          "shared": false,
-          "private": false
-        }
-      ],
-      "addPorts": [
-        {
-          "containerPort": "3579",
-          "hostPort": "${APP_PORT}",
-          "tcp": false,
-          "udp": false
-        }
-      ],
-      "hostname": "ombi",
-      "_id": "service-4kthz48"
-    },
-    {
       "name": "airconnect",
       "image": "1activegeek/airconnect",
-      "isMain": false,
+      "isMain": true,
       "internalPort": "",
       "environment": [
         {
