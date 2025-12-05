@@ -1,0 +1,31 @@
+{
+  "id": "airconnect",
+  "name": "airconnect",
+  "urn": "airconnect:_user",
+  "available": true,
+  "categories": [
+    "development"
+  ],
+  "description": "",
+  "short_desc": "User-created custom app",
+  "author": "User",
+  "source": "",
+  "website": "",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "latest",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [],
+  "https": false,
+  "created_at": 1764930496445,
+  "updated_at": 1764930496445,
+  "force_pull": false
+}

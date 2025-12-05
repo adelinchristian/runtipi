@@ -1,0 +1,31 @@
+{
+  "id": "ombi",
+  "name": "ombi",
+  "urn": "ombi:_user",
+  "available": true,
+  "categories": [
+    "development"
+  ],
+  "description": "",
+  "short_desc": "User-created custom app",
+  "author": "User",
+  "source": "",
+  "website": "",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "latest",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [],
+  "https": false,
+  "created_at": 1764927447120,
+  "updated_at": 1764927447120,
+  "force_pull": false
+}
