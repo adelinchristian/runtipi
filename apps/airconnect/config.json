@@ -4,20 +4,21 @@
   "urn": "airconnect:_user",
   "available": true,
   "categories": [
-    "development"
+    "media",
+    "utilities"
   ],
-  "description": "",
-  "short_desc": "User-created custom app",
-  "author": "User",
-  "source": "",
-  "website": "",
+  "description": "Airconnect is a lightweight service that bridges AirPlay and DLNA devices, allowing seamless streaming across different platforms.",
+  "short_desc": "Airconnect AirPlay and DLNA devices, allowing seamless streaming across different platforms.",
+  "author": "Adelin",
+  "source": "https://github.com/1activegeek/docker-airconnect",
+  "website": "https://github.com/1activegeek/docker-airconnect",
   "exposable": true,
   "no_gui": false,
   "supported_architectures": [
     "amd64",
     "arm64"
   ],
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "dynamic_config": true,
   "deprecated": false,

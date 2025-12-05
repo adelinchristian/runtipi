@@ -4,21 +4,22 @@
   "urn": "ombi:_user",
   "available": true,
   "categories": [
-    "development"
+    "media",
+    "utilities"
   ],
-  "description": "",
-  "short_desc": "User-created custom app",
-  "author": "User",
-  "source": "",
-  "website": "",
+  "description": "Ombi allows you to host your own Plex Request and user management system. If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something. Allow your users to post issues against their requests so you know there is a problem with the audio etc. Even automatically send them weekly newsletters of new content that has been added to your Plex server!",
+  "short_desc": "Ombi is a self-hosted web application that allows users to request movies and TV shows for your Plex Media Server.",
+  "author": "Adelin",
+  "source": "https://github.com/linuxserver/docker-ombi",
+  "website": "https://ombi.io",
   "exposable": true,
   "no_gui": false,
   "supported_architectures": [
     "amd64",
     "arm64"
   ],
-  "tipi_version": 1,
-  "version": "latest",
+  "tipi_version": 2,
+  "version": "latest / development",
   "dynamic_config": true,
   "deprecated": false,
   "force_expose": false,
