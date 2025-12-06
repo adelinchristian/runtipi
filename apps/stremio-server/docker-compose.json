@@ -36,10 +36,6 @@
                     "hostPath": "${APP_DATA_DIR}/data/stremio-server",
                     "containerPath": "/root/.stremio-server"
                 }
-            ],
-            "devices": [
-                "/dev/dri/card0:/dev/dri/card0:rwm",
-                "/dev/dri/renderD128:/dev/dri/renderD128:rwm"
             ]
         }
     ]
