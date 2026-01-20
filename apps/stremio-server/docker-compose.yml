@@ -1,6 +1,6 @@
 services:
   stremio-server:
-    image: stremio/server:v4.20.15
+    image: stremio/server:v4.20.16
     restart: unless-stopped
     networks:
       stremio-server_tipi-store_network:
