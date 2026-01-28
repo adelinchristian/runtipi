@@ -3,10 +3,7 @@ services:
     image: lscr.io/linuxserver/ombi:development
     restart: unless-stopped
     networks:
-      ombi__user_network:
-        gw_priority: 0
-      tipi_main_network:
-        gw_priority: 1
+      - tipi_main_network
     environment:
       PUID: "1000"
       PGID: "1000"
@@ -22,14 +19,3 @@ services:
       runtipi.managed: true
       runtipi.appurn: ombi:_user
     hostname: ombi
-networks:
-  tipi_main_network:
-    name: runtipi_tipi_main_network
-    external: true
-  ombi__user_network:
-    name: ombi__user_network
-    external: false
-    ipam:
-      config:
-        - subnet: 10.128.34.0/24
-

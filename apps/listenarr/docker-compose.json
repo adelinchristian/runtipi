@@ -1,0 +1,34 @@
+{
+  "services": [
+    {
+      "name": "listenarr",
+      "image": "ghcr.io/therobbiedavis/listenarr:canary",
+      "isMain": true,
+      "internalPort": "5000",
+      "environment": [
+        {
+          "key": "LISTENARR_PUBLIC_URL",
+          "value": "${LISTENARR_PUBLIC_URL}"
+        }
+      ],
+      "volumes": [
+        {
+          "containerPath": "/share/Download",
+          "hostPath": "/share/Download",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "containerPath": "/app/config",
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "hostname": "listenarr"
+    }
+  ],
+  "schemaVersion": 2
+}

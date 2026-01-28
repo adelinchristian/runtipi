@@ -3,14 +3,11 @@ services:
     image: stremio/server:v4.20.16
     restart: unless-stopped
     networks:
-      stremio-server_tipi-store_network:
-        gw_priority: 0
-      tipi_main_network:
-        gw_priority: 1
+      - tipi_main_network
     environment:
       NO_CORS: ${NO_CORS}
       CASTING_DISABLED: ${CASTING_DISABLED:-1}
-      #PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin     #taken from https://www.reddit.com/r/Stremio/comments/1ey9ccu/install_stremio_server_on_synology_nas/
+      #PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin    
     ports:
       - 0.0.0.0:11470:11470/tcp
       - 0.0.0.0:12470:12470/tcp
@@ -23,42 +20,3 @@ services:
     labels:
       runtipi.managed: true
       runtipi.appurn: stremio-server:tipi-store
-networks:
-  tipi_main_network:
-    name: runtipi_tipi_main_network
-    external: true
-  stremio-server_tipi-store_network:
-    name: stremio-server_tipi-store_network
-    external: false
-    ipam:
-      config:
-        - subnet: 10.128.35.0/24
-
-#Adelin - old stremio server docker-compose.yml for reference
-# # guide here https://github.com/Stremio/server-docker
-# # and here https://www.reddit.com/r/Stremio/comments/1ey9ccu/install_stremio_server_on_synology_nas/
-# # or here: https://github.com/tsaridas/stremio-docker
-# services:
-#   stremio-server:
-#     container_name: stremio-server
-#     image: stremio/server:latest #tsaridas/stremio-docker:latest #stremio/server:latest
-#     ports:
-#       - 11470:11470
-#       - 12470:12470
-#     #  - 8088:8080 #for local web player tsaridas/stremio-docker
-#     devices:
-#       - "/dev/dri/card0:/dev/dri/card0"
-#       - "/dev/dri/renderD128:/dev/dri/renderD128"
-#     volumes:
-#       - ./config:/root/.stremio-server:rw
-#       - ${APP_DATA_DIR}/data/config:/root/.stremio-server:rw
-#     # networks:    #doesn't work on my asustor
-#     #   - proxy
-#     network_mode: host    #taken from https://www.reddit.com/r/Stremio/comments/1ey9ccu/install_stremio_server_on_synology_nas/
-#     environment:
-#       - NO_CORS=${NO_CORS}  #NO_CORS=1  
-#       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin     #taken from https://www.reddit.com/r/Stremio/comments/1ey9ccu/install_stremio_server_on_synology_nas/
-#       - CASTING_DISABLED=${CASTING_DISABLED:-1} #CASTING_DISABLED=1 #taken from https://www.reddit.com/r/Stremio/comments/1ey9ccu/install_stremio_server_on_synology_nas/
-#     security_opt:
-#       - no-new-privileges:true    #taken from https://www.reddit.com/r/Stremio/comments/1ey9ccu/install_stremio_server_on_synology_nas/
-#     restart: always

@@ -1,0 +1,39 @@
+{
+  "id": "listenarr",
+  "name": "listenarr",
+  "urn": "listenarr:_user",
+  "available": true,
+  "categories": [
+    "utilities"
+  ],
+  "description": "Custom application: listenarr",
+  "short_desc": "User-created custom app",
+  "author": "User",
+  "source": "",
+  "website": "",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "LISTENARR PUBLIC URL",
+      "hint": "Public Listenarr URL",
+      "required": false,
+      "env_variable": "LISTENARR_PUBLIC_URL"
+    }
+  ],
+  "https": false,
+  "created_at": 1767166766213,
+  "updated_at": 1767166766213,
+  "force_pull": false
+}

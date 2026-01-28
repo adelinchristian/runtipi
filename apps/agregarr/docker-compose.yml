@@ -1,0 +1,23 @@
+services:
+  agregarr:
+    image: agregarr/agregarr:latest
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${TZ}
+    ports:
+      - ${APP_PORT}:7171
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ${APP_DATA_DIR}/data:/app/config
+      - /share/Download/Movies:/data/movies
+      - /share/Download/Shows:/data/tv
+      - /share/Download:/share/Download
+    labels:
+      runtipi.managed: true
+      runtipi.appurn: agregarr:_user
+    hostname: agregarr
+

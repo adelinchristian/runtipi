@@ -1,0 +1,31 @@
+services:
+  listenarr:
+    image: ghcr.io/therobbiedavis/listenarr:canary
+    restart: unless-stopped
+    networks:
+      listenarr__user_network:
+        gw_priority: 0
+      tipi_main_network:
+        gw_priority: 1
+    environment:
+      LISTENARR_PUBLIC_URL: ${LISTENARR_PUBLIC_URL}
+    ports:
+      - ${APP_PORT}:5000
+    volumes:
+      - /share/Download:/share/Download
+      - ${APP_DATA_DIR}/data/config:/app/config
+    labels:
+      runtipi.managed: true
+      runtipi.appurn: listenarr:_user
+    hostname: listenarr
+networks:
+  tipi_main_network:
+    name: runtipi_tipi_main_network
+    external: true
+  listenarr__user_network:
+    name: listenarr__user_network
+    external: false
+    ipam:
+      config:
+        - subnet: 10.128.12.0/24
+

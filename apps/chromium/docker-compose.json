@@ -1,26 +1,22 @@
 {
   "services": [
     {
-      "name": "ombi",
-      "image": "lscr.io/linuxserver/ombi:development",
+      "name": "Chromium",
+      "image": "lscr.io/linuxserver/chromium:latest",
       "isMain": true,
-      "internalPort": "3579",
+      "internalPort": "3000",
       "environment": [
         {
           "key": "PUID",
           "value": "1000"
         },
         {
-          "key": "PGID",
+          "key": "GUID",
           "value": "1000"
         },
         {
           "key": "TZ",
           "value": "${TZ}"
-        },
-        {
-          "key": "BASE_URL",
-          "value": "/ombi"
         }
       ],
       "volumes": [
@@ -30,24 +26,23 @@
           "readOnly": false,
           "shared": false,
           "private": false
-        },
-        {
-          "containerPath": "/etc/localtime",
-          "hostPath": "/etc/localtime",
-          "readOnly": true,
-          "shared": false,
-          "private": false
         }
       ],
       "addPorts": [
         {
-          "containerPort": "3579",
-          "hostPort": "${APP_PORT}",
+          "containerPort": "3000",
+          "hostPort": "3300",
+          "tcp": false,
+          "udp": false
+        },
+        {
+          "containerPort": "3001",
+          "hostPort": "3301",
           "tcp": false,
           "udp": false
         }
       ],
-      "hostname": "ombi"
+      "hostname": "chromium"
     }
   ],
   "schemaVersion": 2

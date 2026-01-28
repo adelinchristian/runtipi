@@ -1,0 +1,31 @@
+{
+  "id": "chromium",
+  "name": "chromium",
+  "urn": "chromium:_user",
+  "available": true,
+  "categories": [
+    "utilities"
+  ],
+  "description": "Custom application: chromium",
+  "short_desc": "User-created custom app",
+  "author": "User",
+  "source": "",
+  "website": "",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [],
+  "https": false,
+  "created_at": 1765277780768,
+  "updated_at": 1765277780768,
+  "force_pull": false
+}

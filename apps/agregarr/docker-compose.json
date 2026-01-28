@@ -1,0 +1,63 @@
+{
+  "services": [
+    {
+      "name": "agregarr",
+      "image": "agregarr/agregarr:latest",
+      "isMain": true,
+      "internalPort": "7171",
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
+      "volumes": [
+        {
+          "containerPath": "/etc/localtime",
+          "hostPath": "/etc/localtime",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "containerPath": "/app/config",
+          "hostPath": "${APP_DATA_DIR}/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "containerPath": "/data/movies",
+          "hostPath": "/share/Download/Movies",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "containerPath": "/data/tv",
+          "hostPath": "/share/Download/Shows",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "containerPath": "/share/Download",
+          "hostPath": "/share/Download",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "hostname": "agregarr"
+    }
+  ],
+  "schemaVersion": 2
+}
