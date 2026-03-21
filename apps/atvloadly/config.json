@@ -1,0 +1,32 @@
+{
+  "id": "atvloadly",
+  "name": "atvloadly",
+  "urn": "atvloadly:_user",
+  "available": true,
+  "port": 80,
+  "categories": [
+    "utilities"
+  ],
+  "description": "atvloadly is a web service that supports sideloading app on Apple TV. It uses Sideloader⁠ as the underlying technology for sideloading and automatically refreshes the app to ensure its long-term availability.",
+  "short_desc": "atvloadly is a web service that supports sideloading app on Apple TV. It uses Sideloader⁠ as the underlying technology for sideloading and automatically refreshes the app to ensure its long-term availability.",
+  "author": "Adelin",
+  "source": "https://github.com/bitxeno/atvloadly",
+  "website": "https://github.com/bitxeno/atvloadly",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [],
+  "https": false,
+  "created_at": 1774092633783,
+  "updated_at": 1774092633783,
+  "force_pull": false
+}
