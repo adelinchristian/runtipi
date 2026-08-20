@@ -5,6 +5,26 @@
       "image": "ghcr.io/blakeblackshear/frigate:stable",
       "isMain": true,
       "internalPort": "8971",
+      "addPorts": [
+        {
+          "containerPort": 8554,
+          "hostPort": 8554,
+          "interface": "0.0.0.0",
+          "tcp": true
+        },
+        {
+          "containerPort": 8555,
+          "hostPort": 8555,
+          "interface": "0.0.0.0",
+          "tcp": true
+        },
+        {
+          "containerPort": 8555,
+          "hostPort": 8555,
+          "interface": "0.0.0.0",
+          "udp": true
+        }
+      ],
       "environment": [
         {
           "key": "TZ",
@@ -12,6 +32,13 @@
         }
       ],
       "volumes": [
+        {
+          "containerPath": "/etc/localtime",
+          "hostPath": "/etc/localtime",
+          "readOnly": true,
+          "shared": false,
+          "private": false
+        },
         {
           "containerPath": "/config",
           "hostPath": "${APP_DATA_DIR}/data/config",

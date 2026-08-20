@@ -9,9 +9,13 @@ services:
       TZ: ${TZ}
     ports:
       - ${APP_PORT}:8971
+      - 8554:8554
+      - 8555:8555/tcp
+      - 8555:8555/udp
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/media:/media/frigate
     labels:
