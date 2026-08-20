@@ -24,7 +24,7 @@
   "force_expose": false,
   "generate_vapid_keys": false,
   "form_fields": [],
-  "https": false,
+  "https": true,
   "created_at": 1776643200000,
   "updated_at": 1776643200000,
   "force_pull": false
