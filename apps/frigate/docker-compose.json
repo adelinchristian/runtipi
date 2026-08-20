@@ -1,0 +1,38 @@
+{
+  "services": [
+    {
+      "name": "frigate",
+      "image": "ghcr.io/blakeblackshear/frigate:stable",
+      "isMain": true,
+      "internalPort": "8971",
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
+      "volumes": [
+        {
+          "containerPath": "/config",
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        },
+        {
+          "containerPath": "/media/frigate",
+          "hostPath": "${APP_DATA_DIR}/data/media",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "devices": [
+        "/dev/dri/renderD128:/dev/dri/renderD128"
+      ],
+      "hostname": "frigate",
+      "shmSize": "512mb"
+    }
+  ],
+  "schemaVersion": 2
+}

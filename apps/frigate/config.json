@@ -1,0 +1,31 @@
+{
+  "id": "frigate",
+  "name": "Frigate",
+  "urn": "frigate:_user",
+  "available": true,
+  "categories": [
+    "utilities"
+  ],
+  "description": "Frigate is a complete and local Network Video Recorder (NVR) designed for Home Assistant with AI-powered object detection.",
+  "short_desc": "A local AI-powered Network Video Recorder for security cameras.",
+  "author": "Frigate",
+  "source": "https://github.com/blakeblackshear/frigate",
+  "website": "https://frigate.video",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "stable",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [],
+  "https": false,
+  "created_at": 1776643200000,
+  "updated_at": 1776643200000,
+  "force_pull": false
+}
