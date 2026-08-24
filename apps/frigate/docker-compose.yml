@@ -9,10 +9,12 @@ services:
       TZ: ${TZ}
     ports:
       - ${APP_PORT}:8971
+      - 5000:5000
       - 8554:8554
       - 8555:8555/tcp
       - 8555:8555/udp
     devices:
+      - /dev/bus/usb:/dev/bus/usb
       - /dev/dri/renderD128:/dev/dri/renderD128
     volumes:
       - /etc/localtime:/etc/localtime:ro

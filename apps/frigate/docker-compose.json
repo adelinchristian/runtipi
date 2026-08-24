@@ -7,6 +7,12 @@
       "internalPort": "8971",
       "addPorts": [
         {
+          "containerPort": 5000,
+          "hostPort": 5000,
+          "interface": "0.0.0.0",
+          "tcp": true
+        },
+        {
           "containerPort": 8554,
           "hostPort": 8554,
           "interface": "0.0.0.0",
@@ -55,6 +61,7 @@
         }
       ],
       "devices": [
+        "/dev/bus/usb:/dev/bus/usb",
         "/dev/dri/renderD128:/dev/dri/renderD128"
       ],
       "hostname": "frigate",
