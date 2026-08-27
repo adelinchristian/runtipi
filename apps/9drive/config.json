@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schemas.runtipi.io/v2/app-info.json",
+  "id": "9drive",
+  "name": "9Drive",
+  "available": true,
+  "port": 5173,
+  "description": "A storage gateway for connecting multiple Google Drive accounts into one virtual storage dashboard.",
+  "short_desc": "Unified Google Drive and S3-compatible storage dashboard",
+  "author": "Zenhosta",
+  "source": "https://github.com/zenhosta/9drive",
+  "website": "https://github.com/zenhosta/9drive",
+  "categories": ["utilities"],
+  "exposable": true,
+  "https": false,
+  "dynamic_config": true,
+  "supported_architectures": ["amd64", "arm64"],
+  "tipi_version": 1,
+  "version": "latest",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "JWT access secret",
+      "hint": "Use a long random value.",
+      "required": true,
+      "env_variable": "JWT_ACCESS_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Token encryption key",
+      "hint": "Use a unique 32-byte value.",
+      "required": true,
+      "env_variable": "TOKEN_ENCRYPTION_KEY"
+    },
+    {
+      "type": "text",
+      "label": "Google client ID",
+      "required": false,
+      "env_variable": "GOOGLE_CLIENT_ID"
+    },
+    {
+      "type": "text",
+      "label": "Google client secret",
+      "required": false,
+      "env_variable": "GOOGLE_CLIENT_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Google redirect URI",
+      "required": false,
+      "env_variable": "GOOGLE_REDIRECT_URI"
+    },
+    {
+      "type": "text",
+      "label": "reCAPTCHA secret key",
+      "required": false,
+      "env_variable": "RECAPTCHA_SECRET_KEY"
+    },
+    {
+      "type": "text",
+      "label": "reCAPTCHA site key",
+      "required": false,
+      "env_variable": "VITE_RECAPTCHA_SITE_KEY"
+    }
+  ],
+  "created_at": 1787788800000,
+  "updated_at": 1787788800000,
+  "min_tipi_version": "4.7.0"
+}

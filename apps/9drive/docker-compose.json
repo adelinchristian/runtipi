@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "mysql",
+      "image": "mysql:8.4",
+      "environment": [
+        { "key": "MYSQL_ROOT_PASSWORD", "value": "${MYSQL_ROOT_PASSWORD:-root}" },
+        { "key": "MYSQL_DATABASE", "value": "${MYSQL_DATABASE:-9drive}" },
+        { "key": "MYSQL_USER", "value": "${MYSQL_USER:-9drive}" },
+        { "key": "MYSQL_PASSWORD", "value": "${MYSQL_PASSWORD:-change-this-database-password}" }
+      ],
+      "volumes": [
+        { "hostPath": "${APP_DATA_DIR}/data/mysql", "containerPath": "/var/lib/mysql" }
+      ],
+      "hostname": "mysql"
+    },
+    {
+      "name": "backend",
+      "image": "ghcr.io/adelinchristian/9drive-backend:latest",
+      "environment": [
+        { "key": "DATABASE_URL", "value": "mysql://${MYSQL_USER:-9drive}:${MYSQL_PASSWORD:-change-this-database-password}@mysql:3306/${MYSQL_DATABASE:-9drive}" },
+        { "key": "APP_PORT", "value": "4000" },
+        { "key": "FRONTEND_URL", "value": "http://frontend" },
+        { "key": "JWT_ACCESS_SECRET", "value": "${JWT_ACCESS_SECRET}" },
+        { "key": "TOKEN_ENCRYPTION_KEY", "value": "${TOKEN_ENCRYPTION_KEY}" },
+        { "key": "ACCESS_TOKEN_TTL_SECONDS", "value": "${ACCESS_TOKEN_TTL_SECONDS:-3600}" },
+        { "key": "REFRESH_TOKEN_TTL_DAYS", "value": "${REFRESH_TOKEN_TTL_DAYS:-30}" },
+        { "key": "MAX_UPLOAD_BYTES", "value": "5368709120" },
+        { "key": "GOOGLE_CLIENT_ID", "value": "${GOOGLE_CLIENT_ID:-}" },
+        { "key": "GOOGLE_CLIENT_SECRET", "value": "${GOOGLE_CLIENT_SECRET:-}" },
+        { "key": "GOOGLE_REDIRECT_URI", "value": "${GOOGLE_REDIRECT_URI:-}" },
+        { "key": "RECAPTCHA_SECRET_KEY", "value": "${RECAPTCHA_SECRET_KEY:-}" }
+      ],
+      "hostname": "backend"
+    },
+    {
+      "name": "frontend",
+      "image": "ghcr.io/adelinchristian/9drive-frontend:latest",
+      "isMain": true,
+      "internalPort": "80",
+      "environment": [
+        { "key": "VITE_API_URL", "value": "${VITE_API_URL:-/api}" },
+        { "key": "VITE_RECAPTCHA_SITE_KEY", "value": "${VITE_RECAPTCHA_SITE_KEY:-}" }
+      ],
+      "hostname": "frontend"
+    }
+  ]
+}
