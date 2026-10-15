@@ -13,9 +13,12 @@
           "hard": 8192
         }
       },
-      "environment": {
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "containerPath": "/opt/tplink/EAPController/data",
@@ -27,6 +30,5 @@
         }
       ]
     }
-  ],
-  "schemaVersion": 2
+  ]
 }

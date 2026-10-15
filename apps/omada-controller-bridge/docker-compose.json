@@ -27,9 +27,12 @@
         { "containerPort": 29816, "hostPort": 29816, "tcp": true },
         { "containerPort": 29817, "hostPort": 29817, "tcp": true }
       ],
-      "environment": {
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "containerPath": "/opt/tplink/EAPController/data",
@@ -41,6 +44,5 @@
         }
       ]
     }
-  ],
-  "schemaVersion": 2
+  ]
 }
