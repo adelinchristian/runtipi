@@ -1,0 +1,32 @@
+{
+  "services": [
+    {
+      "name": "omada-controller",
+      "image": "mbentley/omada-controller:6",
+      "isMain": true,
+      "internalPort": "8043",
+      "networkMode": "host",
+      "stopGracePeriod": "60s",
+      "ulimits": {
+        "nofile": {
+          "soft": 4096,
+          "hard": 8192
+        }
+      },
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "containerPath": "/opt/tplink/EAPController/data",
+          "hostPath": "${APP_DATA_DIR}/data"
+        },
+        {
+          "containerPath": "/opt/tplink/EAPController/logs",
+          "hostPath": "${APP_DATA_DIR}/logs"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 2
+}

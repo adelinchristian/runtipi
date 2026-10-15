@@ -1,0 +1,28 @@
+services:
+  omada-controller:
+    image: mbentley/omada-controller:6
+    restart: unless-stopped
+    stop_grace_period: 60s
+    ulimits:
+      nofile:
+        soft: 4096
+        hard: 8192
+    networks:
+      - tipi_main_network
+    ports:
+      - ${APP_PORT}:8043
+      - 8088:8088
+      - 8044:8044
+      - 8843:8843
+      - 19810:19810/udp
+      - 27001:27001/udp
+      - 29810:29810/udp
+      - 29811-29817:29811-29817
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/data:/opt/tplink/EAPController/data
+      - ${APP_DATA_DIR}/logs:/opt/tplink/EAPController/logs
+    labels:
+      runtipi.managed: true
+      runtipi.appurn: omada-controller-bridge:_user

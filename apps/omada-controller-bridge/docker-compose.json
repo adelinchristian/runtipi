@@ -1,0 +1,46 @@
+{
+  "services": [
+    {
+      "name": "omada-controller",
+      "image": "mbentley/omada-controller:6",
+      "isMain": true,
+      "internalPort": "8043",
+      "stopGracePeriod": "60s",
+      "ulimits": {
+        "nofile": {
+          "soft": 4096,
+          "hard": 8192
+        }
+      },
+      "addPorts": [
+        { "containerPort": 8088, "hostPort": 8088, "tcp": true },
+        { "containerPort": 8044, "hostPort": 8044, "tcp": true },
+        { "containerPort": 8843, "hostPort": 8843, "tcp": true },
+        { "containerPort": 19810, "hostPort": 19810, "udp": true },
+        { "containerPort": 27001, "hostPort": 27001, "udp": true },
+        { "containerPort": 29810, "hostPort": 29810, "udp": true },
+        { "containerPort": 29811, "hostPort": 29811, "tcp": true },
+        { "containerPort": 29812, "hostPort": 29812, "tcp": true },
+        { "containerPort": 29813, "hostPort": 29813, "tcp": true },
+        { "containerPort": 29814, "hostPort": 29814, "tcp": true },
+        { "containerPort": 29815, "hostPort": 29815, "tcp": true },
+        { "containerPort": 29816, "hostPort": 29816, "tcp": true },
+        { "containerPort": 29817, "hostPort": 29817, "tcp": true }
+      ],
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "containerPath": "/opt/tplink/EAPController/data",
+          "hostPath": "${APP_DATA_DIR}/data"
+        },
+        {
+          "containerPath": "/opt/tplink/EAPController/logs",
+          "hostPath": "${APP_DATA_DIR}/logs"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 2
+}

@@ -1,0 +1,18 @@
+services:
+  omada-controller:
+    image: mbentley/omada-controller:6
+    restart: unless-stopped
+    stop_grace_period: 60s
+    ulimits:
+      nofile:
+        soft: 4096
+        hard: 8192
+    network_mode: host
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/data:/opt/tplink/EAPController/data
+      - ${APP_DATA_DIR}/logs:/opt/tplink/EAPController/logs
+    labels:
+      runtipi.managed: true
+      runtipi.appurn: omada-controller-host:_user

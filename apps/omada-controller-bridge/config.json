@@ -1,0 +1,28 @@
+{
+  "id": "omada-controller-bridge",
+  "name": "Omada Controller (Bridge)",
+  "urn": "omada-controller-bridge:_user",
+  "available": true,
+  "port": 8043,
+  "categories": [
+    "utilities"
+  ],
+  "description": "Centrally manage TP-Link Omada access points, switches, and gateways with the Omada Software Controller, packaged for Docker by mbentley.",
+  "short_desc": "Centralized management for TP-Link Omada networks.",
+  "author": "TP-Link",
+  "source": "https://github.com/mbentley/docker-omada-controller",
+  "website": "https://www.omadanetworks.com/",
+  "exposable": false,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "6",
+  "dynamic_config": true,
+  "form_fields": [],
+  "https": true,
+  "created_at": 1792022400000,
+  "updated_at": 1792022400000
+}
