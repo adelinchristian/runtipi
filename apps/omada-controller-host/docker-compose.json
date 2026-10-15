@@ -14,10 +14,7 @@
         }
       },
       "environment": [
-        {
-          "key": "TZ",
-          "value": "${TZ}"
-        }
+        "TZ=${TZ}"
       ],
       "volumes": [
         {
@@ -30,5 +27,6 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2
 }
