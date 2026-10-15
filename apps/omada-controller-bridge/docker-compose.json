@@ -28,7 +28,10 @@
         { "containerPort": 29817, "hostPort": 29817, "tcp": true }
       ],
       "environment": [
-        "TZ=${TZ}"
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
       ],
       "volumes": [
         {

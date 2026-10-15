@@ -14,7 +14,10 @@
         }
       },
       "environment": [
-        "TZ=${TZ}"
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
       ],
       "volumes": [
         {
