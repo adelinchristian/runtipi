@@ -4,7 +4,7 @@
     "services": [
         {
             "name": "aiostreams",
-            "image": "ghcr.io/viren070/aiostreams:v2.25.4",
+            "image": "ghcr.io/viren070/aiostreams:v2.37.0",
             "internalPort": 3000,
             "isMain": true,
             "environment": [
@@ -27,6 +27,10 @@
                 {
                     "key": "SECRET_KEY",
                     "value": "${AIOSTREAMS_SECRET_KEY}"
+                },
+                {
+                    "key": "AIOSTREAMS_AUTH",
+                    "value": "${AIOSTREAMS_AUTH}"
                 },
                 {
                     "key": "ADDON_PASSWORD",
@@ -56,7 +60,7 @@
                 }
             ],
             "healthCheck": {
-                "test": "wget -qO- http://localhost:3000/api/v1/status || exit 1",
+                "test": "/nodejs/bin/node /app/scripts/healthcheck.js",
                 "interval": "1m",
                 "timeout": "10s",
                 "retries": 5,

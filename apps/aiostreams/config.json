@@ -5,12 +5,13 @@
   "port": 3000,
   "name": "AIOStreams",
   "description": "AIOStreams is a super-addon for Stremio that consolidates multiple addons and debrid services into a single, highly customisable interface. It aggregates streams from all your favorite sources, filters, sorts, and formats them according to your rules. Includes 10+ built-in addons for torrents and usenet, advanced filtering engine, unified catalog management, and custom stream formatting.",
-  "version": "v2.25.4",
-  "tipi_version": 22,
+  "version": "v2.37.0",
+  "tipi_version": 23,
   "short_desc": "Unified Stremio addon manager",
   "author": "Viren070",
   "source": "https://github.com/Viren070/AIOStreams",
-  "website": "https://aiostreams.elfhosted.com",
+  "website": "https://docs.aiostreams.viren070.me/",
+  "url_suffix": "/stremio/configure",
   "categories": [
     "media"
   ],
@@ -18,16 +19,26 @@
     {
       "env_variable": "AIOSTREAMS_SECRET_KEY",
       "label": "Secret Key",
-      "hint": "64-character hex string for encryption. Generate with: [System.Guid]::NewGuid().ToString('N') + [System.Guid]::NewGuid().ToString('N')",
+      "hint": "64-character hexadecimal encryption key. Keep the existing value when upgrading; changing it makes saved configurations unreadable.",
       "type": "random",
+      "encoding": "hex",
+      "regex": "^[a-fA-F0-9]{64}$",
+      "pattern_error": "Enter exactly 64 hexadecimal characters.",
       "min": 64,
       "max": 64,
       "required": true
     },
     {
+      "env_variable": "AIOSTREAMS_AUTH",
+      "label": "Instance Login Credentials",
+      "hint": "Set username:password pairs, separated by commas for multiple users. These logins have admin access. This is separate from each configuration's UUID and password.",
+      "type": "password",
+      "required": true
+    },
+    {
       "env_variable": "AIOSTREAMS_ADDON_PASSWORD",
-      "label": "Addon Password",
-      "hint": "Password to protect addon installation. Leave empty to disable.",
+      "label": "Legacy Addon Password (Migration Only)",
+      "hint": "When upgrading from before v2.30, keep your previous Addon Password for the first successful startup. New installations can leave this empty. Use Instance Login Credentials to sign in.",
       "type": "password",
       "required": false
     },
@@ -55,5 +66,5 @@
   "dynamic_config": true,
   "min_tipi_version": "3.0.0",
   "created_at": 1767561559004,
-  "updated_at": 1773363459000
+  "updated_at": 1793232000000
 }
