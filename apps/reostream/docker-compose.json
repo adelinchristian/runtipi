@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "name": "reostream",
+      "image": "ghcr.io/volttech21/reostream:v0.2.9",
+      "isMain": true,
+      "internalPort": "8562",
+      "networkMode": "host",
+      "volumes": [
+        {
+          "containerPath": "/data",
+          "hostPath": "${APP_DATA_DIR}/data",
+          "readOnly": false,
+          "shared": false,
+          "private": false
+        }
+      ],
+      "hostname": "reostream"
+    }
+  ],
+  "schemaVersion": 2
+}

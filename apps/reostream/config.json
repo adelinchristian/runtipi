@@ -1,0 +1,33 @@
+{
+  "id": "reostream",
+  "name": "Reostream",
+  "urn": "reostream:_user",
+  "available": true,
+  "port": 8562,
+  "categories": [
+    "media",
+    "utilities"
+  ],
+  "description": "A Reolink camera proxy that uses Reolink's Baichuan protocol to provide RTSP and HTTP video streams for Frigate, go2rtc, and other NVRs.",
+  "short_desc": "Reliable RTSP and HTTP streams from Reolink cameras.",
+  "author": "VoltTech21",
+  "source": "https://github.com/VoltTech21/reostream",
+  "website": "https://github.com/VoltTech21/reostream",
+  "exposable": false,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "v0.2.9",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [],
+  "https": false,
+  "created_at": 1795041000000,
+  "updated_at": 1795041000000,
+  "force_pull": false
+}
