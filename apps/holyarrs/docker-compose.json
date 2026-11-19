@@ -5,11 +5,20 @@
       "image": "holyarrs/holyarrs:1.2.0",
       "isMain": true,
       "internalPort": "6262",
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "containerPath": "/config",
