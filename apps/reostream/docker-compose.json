@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "reostream",
-      "image": "ghcr.io/volttech21/reostream:v0.2.9",
+      "image": "ghcr.io/volttech21/reostream:0.2.9",
       "isMain": true,
       "internalPort": "8562",
       "networkMode": "host",

@@ -1,7 +1,7 @@
 ---
 name: Reostream
 short_desc: Reliable RTSP and HTTP streams from Reolink cameras.
-version: v0.2.9
+version: 0.2.9
 ---
 
 # Reostream

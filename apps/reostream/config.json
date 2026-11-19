@@ -20,7 +20,7 @@
     "arm64"
   ],
   "tipi_version": 1,
-  "version": "v0.2.9",
+  "version": "0.2.9",
   "dynamic_config": true,
   "deprecated": false,
   "force_expose": false,
