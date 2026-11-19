@@ -1,0 +1,33 @@
+{
+  "id": "holyarrs",
+  "name": "HolyArrs",
+  "urn": "holyarrs:_user",
+  "available": true,
+  "port": 6262,
+  "categories": [
+    "media",
+    "utilities"
+  ],
+  "description": "A self-hosted app for movie, TV, and music requests, releases, subtitles, and library management.",
+  "short_desc": "Manage media requests, downloads, and libraries in one app.",
+  "author": "CoderLuii",
+  "source": "https://github.com/HolyArrs/HolyArrs",
+  "website": "https://holyarrs.com",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "1.2.0",
+  "dynamic_config": true,
+  "deprecated": false,
+  "force_expose": false,
+  "generate_vapid_keys": false,
+  "form_fields": [],
+  "https": false,
+  "created_at": 1795041000000,
+  "updated_at": 1795041000000,
+  "force_pull": false
+}
