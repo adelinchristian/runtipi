@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "holyarrs",
-      "image": "holyarrs/holyarrs:1.2.0",
+      "image": "holyarrs/holyarrs:1.3.0",
       "isMain": true,
       "internalPort": "6262",
       "environment": [
