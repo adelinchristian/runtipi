@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.runtipi.io/v2/app-info.json",
+  "id": "tuliprox",
+  "name": "Tuliprox",
+  "available": true,
+  "port": 8901,
+  "categories": [
+    "media",
+    "utilities"
+  ],
+  "description": "A self-hosted IPTV proxy and playlist processor for organizing authorized media sources and serving them to compatible clients.",
+  "short_desc": "IPTV proxy and playlist manager",
+  "author": "euzu",
+  "source": "https://github.com/euzu/tuliprox",
+  "website": "https://github.com/euzu/tuliprox",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "version": "3.3.0",
+  "tipi_version": 1,
+  "dynamic_config": true,
+  "form_fields": [],
+  "created_at": 1795798883514,
+  "updated_at": 1795798883514
+}

@@ -87,6 +87,19 @@ test("OpenTubeX Sync preserves its database and account secret", async () => {
   expect(await getFile("opentubex-sync", "data/.gitkeep")).not.toBeNull()
 })
 
+test("Tuliprox prepares persistent setup and data directories", async () => {
+  const compose = JSON.parse((await getFile("tuliprox", "docker-compose.json")) || '{}')
+  const service = compose.services.find((entry: { isMain?: boolean }) => entry.isMain)
+
+  for (const directory of ["config", "data", "backup", "downloads", "cache"]) {
+    expect(service.volumes).toContainEqual({
+      hostPath: `\${APP_DATA_DIR}/data/${directory}`,
+      containerPath: `/app/${directory}`
+    })
+    expect(await getFile("tuliprox", `data/${directory}/.gitkeep`)).not.toBeNull()
+  }
+})
+
 describe("each app should have a valid docker-compose.json", async () => {
   const apps = await getApps()
 
