@@ -12,6 +12,8 @@ OpenTubeX is an open-source YouTube client for browsing videos, following channe
 
 OpenTubeX requires a secure browser origin for its library. Configure an HTTPS domain or a private HTTPS reverse proxy and open that URL; plain HTTP works only on `localhost`. The app has no server-side access control, so protect any remotely accessible URL with authentication or a firewall.
 
+You can also use the [official live web app](https://opentubex.org/app/). Its browser library is separate from your self-hosted app unless you configure sync.
+
 The Invidious services may need about a minute to start before videos play. Search and playback can still be affected by YouTube blocking the server's IP.
 
 ## Library and privacy

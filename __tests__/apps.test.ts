@@ -72,6 +72,21 @@ test("OpenTubeX shares a 16-character companion key", async () => {
   expect(field).toMatchObject({ type: "random", encoding: "hex", min: 16, max: 16 })
 })
 
+test("OpenTubeX Sync preserves its database and account secret", async () => {
+  const config = JSON.parse((await getFile("opentubex-sync", "config.json")) || '{}')
+  const compose = JSON.parse((await getFile("opentubex-sync", "docker-compose.json")) || '{}')
+  const service = compose.services.find((entry: { isMain?: boolean }) => entry.isMain)
+  const secret = config.form_fields.find((entry: { env_variable: string }) => entry.env_variable === "OPENTUBEX_SYNC_SECRET")
+  const environment = Object.fromEntries(service.environment.map((entry: { key: string, value: string }) => [entry.key, entry.value]))
+
+  expect(secret).toMatchObject({ type: "random", encoding: "hex", min: 64 })
+  expect(environment.SECRET_KEY).toBe(`\${${secret.env_variable}}`)
+  expect(environment.USERNAME_SECRET).toBe(environment.SECRET_KEY)
+  expect(environment.DATABASE_URL).toBe("./data/db.sqlite")
+  expect(service.volumes).toContainEqual({ hostPath: "${APP_DATA_DIR}/data", containerPath: "/app/data" })
+  expect(await getFile("opentubex-sync", "data/.gitkeep")).not.toBeNull()
+})
+
 describe("each app should have a valid docker-compose.json", async () => {
   const apps = await getApps()
 

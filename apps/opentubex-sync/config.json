@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.runtipi.io/v2/app-info.json",
+  "id": "opentubex-sync",
+  "name": "OpenTubeX Sync Server",
+  "available": true,
+  "port": 8081,
+  "categories": [
+    "media",
+    "utilities"
+  ],
+  "description": "A self-hosted sync server for OpenTubeX subscriptions, playlists, history, and settings.",
+  "short_desc": "Sync OpenTubeX data across devices",
+  "author": "OpenTubeX",
+  "source": "https://github.com/OpenTubeX/sync-server",
+  "website": "https://opentubex.org",
+  "exposable": true,
+  "no_gui": true,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "version": "latest-sqlite",
+  "tipi_version": 1,
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Sync server secret",
+      "hint": "Keep this secret unchanged and back it up with the database; changing it locks out existing accounts.",
+      "env_variable": "OPENTUBEX_SYNC_SECRET",
+      "encoding": "hex",
+      "min": 64,
+      "max": 64,
+      "required": true
+    },
+    {
+      "type": "boolean",
+      "label": "Allow registration",
+      "hint": "Disable after creating your accounts if no more registrations are needed.",
+      "env_variable": "OPENTUBEX_SYNC_ALLOW_REGISTRATION",
+      "default": true
+    },
+    {
+      "type": "text",
+      "label": "Database migration approval",
+      "hint": "Leave empty normally. After a verified backup, enter the exact pending versions from the server logs, comma-separated, then clear this field after migration.",
+      "env_variable": "OPENTUBEX_SYNC_MIGRATION_APPROVAL",
+      "required": false
+    }
+  ],
+  "created_at": 1795796477675,
+  "updated_at": 1795796477675
+}
