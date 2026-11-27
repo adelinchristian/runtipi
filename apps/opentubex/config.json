@@ -18,7 +18,7 @@
     "amd64",
     "arm64"
   ],
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "dynamic_config": true,
   "form_fields": [
@@ -33,9 +33,11 @@
     {
       "type": "random",
       "label": "Invidious companion key",
-      "hint": "Keep this key unchanged when updating.",
-      "env_variable": "OPENTUBEX_COMPANION_KEY",
+      "hint": "A 16-character key shared with Invidious. Keep it unchanged when updating.",
+      "env_variable": "OPENTUBEX_COMPANION_KEY_V2",
       "encoding": "hex",
+      "min": 16,
+      "max": 16,
       "required": true
     },
     {

@@ -58,6 +58,20 @@ describe("each app should have a valid config.json", async () => {
   }
 })
 
+test("OpenTubeX shares a 16-character companion key", async () => {
+  const config = JSON.parse((await getFile("opentubex", "config.json")) || '{}')
+  const compose = JSON.parse((await getFile("opentubex", "docker-compose.json")) || '{}')
+  const invidious = compose.services.find((service: { name: string }) => service.name === "invidious")
+  const companion = compose.services.find((service: { name: string }) => service.name === "companion")
+  const invidiousConfig = invidious.environment.find((entry: { key: string }) => entry.key === "INVIDIOUS_CONFIG").value
+  const companionKey = companion.environment.find((entry: { key: string }) => entry.key === "SERVER_SECRET_KEY").value
+  const keyName = /^\$\{([A-Z0-9_]+)\}$/.exec(companionKey)?.[1]
+  const field = config.form_fields.find((entry: { env_variable: string }) => entry.env_variable === keyName)
+
+  expect(invidiousConfig).toContain(`invidious_companion_key: "${companionKey}"`)
+  expect(field).toMatchObject({ type: "random", encoding: "hex", min: 16, max: 16 })
+})
+
 describe("each app should have a valid docker-compose.json", async () => {
   const apps = await getApps()
 

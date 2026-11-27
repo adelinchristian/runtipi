@@ -19,7 +19,7 @@
       "environment": [
         {
           "key": "INVIDIOUS_CONFIG",
-          "value": "db:\n  dbname: invidious\n  user: kemal\n  password: \"${OPENTUBEX_DB_PASSWORD}\"\n  host: invidious-db\n  port: 5432\ncheck_tables: true\ninvidious_companion:\n  - private_url: \"http://companion:8282/companion\"\ninvidious_companion_key: \"${OPENTUBEX_COMPANION_KEY}\"\nhmac_key: \"${OPENTUBEX_HMAC_KEY}\"\nlogin_enabled: false"
+          "value": "db:\n  dbname: invidious\n  user: kemal\n  password: \"${OPENTUBEX_DB_PASSWORD}\"\n  host: invidious-db\n  port: 5432\ncheck_tables: true\ninvidious_companion:\n  - private_url: \"http://companion:8282/companion\"\ninvidious_companion_key: \"${OPENTUBEX_COMPANION_KEY_V2}\"\nhmac_key: \"${OPENTUBEX_HMAC_KEY}\"\nlogin_enabled: false"
         }
       ],
       "healthCheck": {
@@ -44,7 +44,7 @@
       "environment": [
         {
           "key": "SERVER_SECRET_KEY",
-          "value": "${OPENTUBEX_COMPANION_KEY}"
+          "value": "${OPENTUBEX_COMPANION_KEY_V2}"
         }
       ],
       "capDrop": [

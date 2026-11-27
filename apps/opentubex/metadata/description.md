@@ -22,4 +22,6 @@ The bundled Invidious instance contacts YouTube from your server. To use the Loc
 
 The PostgreSQL data is persistent. The companion's cache is temporary and is recreated when its container is replaced. Keep the generated Invidious and database keys unchanged across updates.
 
+The companion key was regenerated in app version 2 to meet Invidious's 16-character requirement. The database password is unchanged.
+
 See the [self-hosting guide](https://opentubex.org/docs/self-hosting/) for setup, provider choices, and troubleshooting.
