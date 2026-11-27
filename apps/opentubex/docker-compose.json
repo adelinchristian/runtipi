@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "opentubex",
+      "image": "ghcr.io/opentubex/opentubex-web:latest",
+      "isMain": true,
+      "internalPort": 80,
+      "dependsOn": {
+        "invidious": {
+          "condition": "service_healthy"
+        }
+      }
+    },
+    {
+      "name": "invidious",
+      "image": "quay.io/invidious/invidious:latest",
+      "environment": [
+        {
+          "key": "INVIDIOUS_CONFIG",
+          "value": "db:\n  dbname: invidious\n  user: kemal\n  password: \"${OPENTUBEX_DB_PASSWORD}\"\n  host: invidious-db\n  port: 5432\ncheck_tables: true\ninvidious_companion:\n  - private_url: \"http://companion:8282/companion\"\ninvidious_companion_key: \"${OPENTUBEX_COMPANION_KEY}\"\nhmac_key: \"${OPENTUBEX_HMAC_KEY}\"\nlogin_enabled: false"
+        }
+      ],
+      "healthCheck": {
+        "test": "wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/stats || exit 1",
+        "interval": "30s",
+        "timeout": "5s",
+        "retries": 2,
+        "startPeriod": "60s"
+      },
+      "dependsOn": {
+        "invidious-db": {
+          "condition": "service_healthy"
+        },
+        "companion": {
+          "condition": "service_started"
+        }
+      }
+    },
+    {
+      "name": "companion",
+      "image": "quay.io/invidious/invidious-companion:latest",
+      "environment": [
+        {
+          "key": "SERVER_SECRET_KEY",
+          "value": "${OPENTUBEX_COMPANION_KEY}"
+        }
+      ],
+      "capDrop": [
+        "ALL"
+      ],
+      "securityOpt": [
+        "no-new-privileges:true"
+      ]
+    },
+    {
+      "name": "invidious-db",
+      "image": "postgres:18-alpine",
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "invidious"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "kemal"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${OPENTUBEX_DB_PASSWORD}"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql"
+        }
+      ],
+      "healthCheck": {
+        "test": "pg_isready -U kemal -d invidious",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5
+      }
+    }
+  ]
+}

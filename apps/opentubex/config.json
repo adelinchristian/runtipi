@@ -1,0 +1,54 @@
+{
+  "id": "opentubex",
+  "name": "OpenTubeX",
+  "urn": "opentubex:_user",
+  "available": true,
+  "port": 8080,
+  "categories": [
+    "media"
+  ],
+  "description": "A self-hosted OpenTubeX web client with an Invidious backend for browsing YouTube videos and managing a local library.",
+  "short_desc": "A privacy-focused YouTube client with a local library.",
+  "author": "OpenTubeX",
+  "source": "https://github.com/OpenTubeX/OpenTubeX",
+  "website": "https://opentubex.org",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "tipi_version": 1,
+  "version": "latest",
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Invidious HMAC key",
+      "hint": "Keep this key unchanged when updating.",
+      "env_variable": "OPENTUBEX_HMAC_KEY",
+      "encoding": "hex",
+      "required": true
+    },
+    {
+      "type": "random",
+      "label": "Invidious companion key",
+      "hint": "Keep this key unchanged when updating.",
+      "env_variable": "OPENTUBEX_COMPANION_KEY",
+      "encoding": "hex",
+      "required": true
+    },
+    {
+      "type": "random",
+      "label": "Invidious database password",
+      "hint": "Keep this password unchanged when updating.",
+      "env_variable": "OPENTUBEX_DB_PASSWORD",
+      "encoding": "hex",
+      "required": true
+    }
+  ],
+  "https": false,
+  "force_expose": false,
+  "created_at": 1795723200000,
+  "updated_at": 1795723200000
+}
